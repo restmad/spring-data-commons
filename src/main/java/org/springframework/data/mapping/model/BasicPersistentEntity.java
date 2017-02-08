@@ -410,8 +410,8 @@ public class BasicPersistentEntity<T, P extends PersistentProperty<P>> implement
 	public PersistentPropertyAccessor getPropertyAccessor(Object bean) {
 
 		Assert.notNull(bean, "Target bean must not be null!");
-		Assert.isTrue(getType().isInstance(bean),
-				() -> String.format(TYPE_MISMATCH, bean.getClass().getName(), getType().getName()));
+		Assert.isTrue(getType().isInstance(bean), () ->
+				String.format(TYPE_MISMATCH, bean.getClass().getName(), getType().getName()));
 
 		return propertyAccessorFactory.getPropertyAccessor(this, bean);
 	}
