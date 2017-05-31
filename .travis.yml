@@ -35,7 +35,7 @@ group: edge
 
 install: true
 
-script: "mvn clean dependency:list test -P${PROFILE} -Dsort -U --global-toolchains travis-toolchains.xml"
+script: "./mvnw clean dependency:list test -P${PROFILE} -Dsort -U --global-toolchains travis-toolchains.xml"
 
 notifications:
   slack:
