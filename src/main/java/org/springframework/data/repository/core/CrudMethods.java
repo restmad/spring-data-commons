@@ -32,10 +32,10 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 public interface CrudMethods {
 
 	/**
-	 * Returns the method to be used for saving entities. Usually siganture compatible to
+	 * Returns the method to be used for saving entities. Usually signature compatible to
 	 * {@link CrudRepository#save(Object)}.
 	 * 
-	 * @return the method to save entities or {@literal null} if noen exposed.
+	 * @return the method to save entities or {@link Optional#empty()} if none exposed.
 	 * @see #hasSaveMethod()
 	 */
 	Optional<Method> getSaveMethod();
@@ -48,10 +48,10 @@ public interface CrudMethods {
 	boolean hasSaveMethod();
 
 	/**
-	 * Returns the find all method of the repository. Implementations should prefer more detailled methods like
+	 * Returns the find all method of the repository. Implementations should prefer more detailed methods like
 	 * {@link PagingAndSortingRepository}'s taking a {@link Pageable} or {@link Sort} instance.
 	 * 
-	 * @return the find all method of the repository or {@literal null} if not available.
+	 * @return the find all method of the repository or {@link Optional#empty()} if not available.
 	 * @see #hasFindAllMethod()
 	 */
 	Optional<Method> getFindAllMethod();
@@ -67,7 +67,7 @@ public interface CrudMethods {
 	 * Returns the find one method of the repository. Usually signature compatible to
 	 * {@link CrudRepository#findById(Object)}
 	 * 
-	 * @return the find one method of the repository or {@literal null} if not available.
+	 * @return the find one method of the repository or {@link Optional#empty()} if not available.
 	 * @see #hasFindOneMethod()
 	 */
 	Optional<Method> getFindOneMethod();
@@ -82,13 +82,13 @@ public interface CrudMethods {
 	/**
 	 * Returns the delete method of the repository. Will prefer a delete-by-entity method over a delete-by-id method.
 	 * 
-	 * @return the delete method of the repository or {@literal null} if not available.
+	 * @return the delete method of the repository or {@link Optional#empty()} if not available.
 	 * @see #hasDelete()
 	 */
 	Optional<Method> getDeleteMethod();
 
 	/**
-	 * Returns whether the repository esposes a delete method.
+	 * Returns whether the repository exposes a delete method.
 	 * 
 	 * @return
 	 */
